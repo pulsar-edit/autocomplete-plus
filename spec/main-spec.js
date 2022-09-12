@@ -2,6 +2,7 @@
 /* eslint-env jasmine */
 
 import { conditionPromise, waitForAutocomplete } from './spec-helper'
+import path from 'path'
 
 describe('Autocomplete', () => {
   let editorView
@@ -10,7 +11,7 @@ describe('Autocomplete', () => {
   let mainModule
 
   beforeEach(async () => {
-    atom.workspace.project.setPaths([__dirname + '/fixtures']);
+    atom.workspace.project.setPaths([path.join(__dirname, 'fixtures')]);
     jasmine.useRealClock()
 
     // Set to live completion

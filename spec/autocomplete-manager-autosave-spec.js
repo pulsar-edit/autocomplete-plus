@@ -16,7 +16,7 @@ describe('Autocomplete Manager', () => {
   let createSuggestionsPromise
 
   beforeEach(async () => {
-    atom.workspace.project.setPaths([__dirname + '/fixtures']);
+    atom.workspace.project.setPaths([path.join(__dirname, 'fixtures')]);
     jasmine.useRealClock()
 
     directory = temp.mkdirSync()

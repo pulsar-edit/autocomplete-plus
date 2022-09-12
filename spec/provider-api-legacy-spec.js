@@ -3,12 +3,13 @@
 
 import { triggerAutocompletion, waitForAutocomplete, conditionPromise } from './spec-helper'
 import grim from 'grim'
+import path from 'path'
 
 describe('Provider API Legacy', () => {
   let [editor, mainModule, autocompleteManager, registration, testProvider] = []
 
   beforeEach(async () => {
-    atom.workspace.project.setPaths([__dirname + '/fixtures']);
+    atom.workspace.project.setPaths([path.join(__dirname, 'fixtures')]);
     jasmine.useRealClock()
     jasmine.snapshotDeprecations()
 

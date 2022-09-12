@@ -2,6 +2,7 @@
 /* eslint-env jasmine */
 
 import { conditionPromise, waitForAutocomplete } from './spec-helper'
+import path from 'path'
 
 describe('Autocomplete Manager', () => {
   let editorView
@@ -9,7 +10,7 @@ describe('Autocomplete Manager', () => {
   let mainModule
 
   beforeEach(() => {
-    atom.workspace.project.setPaths([__dirname + '/fixtures']);
+    atom.workspace.project.setPaths([path.join(__dirname, 'fixtures')]);
     // Set to live completion
     atom.config.set('autocomplete-plus.enableAutoActivation', true)
     atom.config.set('editor.fontSize', '16')

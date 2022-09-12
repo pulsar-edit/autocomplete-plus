@@ -1,6 +1,7 @@
 /* eslint-env jasmine */
 
 const { conditionPromise } = require('./spec-helper')
+const path = require('path')
 
 let suggestionsForPrefix = async (provider, editor, prefix, options) => {
   let bufferPosition = editor.getCursorBufferPosition()
@@ -21,7 +22,7 @@ describe('SubsequenceProvider', () => {
   let [editor, mainModule, autocompleteManager, provider] = []
 
   beforeEach(async () => {
-    atom.workspace.project.setPaths([__dirname + '/fixtures']);
+    atom.workspace.project.setPaths([path.join(__dirname, 'fixtures')]);
     jasmine.useRealClock()
 
     // Set to live completion
