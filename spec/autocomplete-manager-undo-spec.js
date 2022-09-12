@@ -9,6 +9,7 @@ describe('Autocomplete Manager', () => {
   let mainModule
 
   beforeEach(() => {
+    atom.workspace.project.setPaths([__dirname + '/fixtures']);
     // Set to live completion
     atom.config.set('autocomplete-plus.enableAutoActivation', true)
     atom.config.set('editor.fontSize', '16')

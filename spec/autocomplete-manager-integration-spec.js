@@ -34,6 +34,7 @@ describe('Autocomplete Manager', () => {
   }
 
   beforeEach(() => {
+    atom.workspace.project.setPaths([__dirname + '/fixtures']);
     jasmine.useRealClock()
     gutterWidth = null
     // Set to live completion

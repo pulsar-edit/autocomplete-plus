@@ -6,6 +6,7 @@ describe('Async providers', () => {
   let editorView, editor, mainModule, autocompleteManager, registration
 
   beforeEach(async () => {
+    atom.workspace.project.setPaths([__dirname + '/fixtures']);
     jasmine.useRealClock()
 
     // Set to live completion

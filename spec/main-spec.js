@@ -10,6 +10,7 @@ describe('Autocomplete', () => {
   let mainModule
 
   beforeEach(async () => {
+    atom.workspace.project.setPaths([__dirname + '/fixtures']);
     jasmine.useRealClock()
 
     // Set to live completion

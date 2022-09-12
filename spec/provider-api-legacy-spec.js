@@ -8,6 +8,7 @@ describe('Provider API Legacy', () => {
   let [editor, mainModule, autocompleteManager, registration, testProvider] = []
 
   beforeEach(async () => {
+    atom.workspace.project.setPaths([__dirname + '/fixtures']);
     jasmine.useRealClock()
     jasmine.snapshotDeprecations()
 
