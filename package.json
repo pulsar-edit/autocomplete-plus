@@ -3,7 +3,7 @@
   "version": "2.42.5",
   "main": "./lib/main",
   "description": "Display possible completions in the editor while typing",
-  "repository": "https://github.com/atom/autocomplete-plus",
+  "repository": "https://github.com/pulsar-edit/autocomplete-plus",
   "license": "MIT",
   "engines": {
     "atom": ">=0.189.0 <2.0.0"
@@ -89,7 +89,7 @@
     },
     "useCoreMovementCommands": {
       "title": "Use Core Movement Commands",
-      "description": "Disable this if you want to bind your own keystrokes to move around the suggestion list. You will also need to add definitions to your keymap. See: https://github.com/atom/autocomplete-plus#remapping-movement-commands",
+      "description": "Disable this if you want to bind your own keystrokes to move around the suggestion list. You will also need to add definitions to your keymap. See: https://github.com/pulsar-edit/autocomplete-plus#remapping-movement-commands",
       "type": "boolean",
       "default": true,
       "order": 5

@@ -1,15 +1,14 @@
 # Autocomplete+ package
-[![macOS Build Status](https://travis-ci.org/atom/autocomplete-plus.svg?branch=master)](https://travis-ci.org/atom/autocomplete-plus) [![Windows Build status](https://ci.appveyor.com/api/projects/status/9bpokrud2apgqsq0/branch/master?svg=true)](https://ci.appveyor.com/project/Atom/autocomplete-plus/branch/master) [![Dependency Status](https://david-dm.org/atom/autocomplete-plus.svg)](https://david-dm.org/atom/autocomplete-plus)
 
 Displays possible autocomplete suggestions on keystroke (or manually by typing `ctrl-space`) and inserts a suggestion in the editor if confirmed.
 
-![autocomplete+](https://cloud.githubusercontent.com/assets/744740/7656861/9fb8bcc4-faea-11e4-9814-9dca218ded93.png)
+![autocomplete+](https://github.com/pulsar-edit/autocomplete-plus/tree/master/resources/images/autocomplete+.png)
 
-[Changelog](https://github.com/atom/autocomplete-plus/releases)
+[Changelog](https://github.com/pulsar-edit/autocomplete-plus/releases)
 
 ## Installation
 
-`autocomplete+` is bundled with Atom. You don't have to do anything to install it.
+`autocomplete+` is bundled with Pulsar. You don't have to do anything to install it.
 
 ## Providers
 
@@ -40,7 +39,7 @@ By default, autocomplete-plus commandeers the editor's core movement commands wh
 
 First you need to set the `autocomplete-plus.useCoreMovementCommands` setting to `false`, which you can do from the `autocomplete-plus` settings in the settings view.
 
-![core-movement](https://cloud.githubusercontent.com/assets/69169/8839134/72a9c7e6-3087-11e5-9d1f-8d3d15961327.jpg)
+![core-movement](https://github.com/pulsar-edit/autocomplete-plus/tree/master/resources/images/core-movement.jpg)
 
 Or by adding this to your config file:
 
