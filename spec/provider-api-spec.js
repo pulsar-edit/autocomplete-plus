@@ -2,11 +2,13 @@
 /* eslint-env jasmine */
 
 import {waitForAutocomplete, triggerAutocompletion, conditionPromise} from './spec-helper'
+import path from 'path'
 
 describe('Provider API', () => {
   let [editor, mainModule, autocompleteManager, registration, testProvider, testProvider2] = []
 
   beforeEach(async () => {
+    atom.workspace.project.setPaths([path.join(__dirname, 'fixtures')]);
     jasmine.useRealClock()
 
     // Set to live completion
