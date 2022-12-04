@@ -23,5 +23,5 @@ jobs:
         uses: GabrielBB/xvfb-action@v1
         with:
           # What if we match Pulsar Package Tests?
-          run: node -e "require('./script/run-package-tests')(autocomplete-plus)"
+          run: node -e "require('./script/run-package-tests')('autocomplete-plus')"
           working-directory: ./pulsar
