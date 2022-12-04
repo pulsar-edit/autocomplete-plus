@@ -22,5 +22,6 @@ jobs:
       - name: Run the headless Pulsar Tests
         uses: GabrielBB/xvfb-action@v1
         with:
-          run: yarn start --test spec
+          # What if we match Pulsar Package Tests?
+          run: node -e "require('./script/run-package-tests')(autocomplete-plus)"
           working-directory: ./pulsar
