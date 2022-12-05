@@ -16,7 +16,7 @@ jobs:
       - name: Checkout the Latest Package Code
         uses: actions/checkout@v3
       - name: Setup Pulsar Editor
-        uses: pulsar-edit/action-pulsar-dependency@3209b008631161e506ff6cd870653b0293c97dce
+        uses: pulsar-edit/action-pulsar-dependency@a6e49d921b557e10a7e27a9c8c73ce566e355f83
         with:
           package-to-test: "autocomplete-plus"
       - name: Run the headless Pulsar Tests
