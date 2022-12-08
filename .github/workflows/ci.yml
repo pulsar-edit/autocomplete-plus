@@ -25,7 +25,7 @@ jobs:
         with:
           node-version: 16
       - name: Setup Pulsar Editor
-        uses: pulsar-edit/action-pulsar-dependency@949440e41a7ec57b451875ca176f3f383f8764d7
+        uses: pulsar-edit/action-pulsar-dependency@46bec7797145c4e38e35a90f7fbe10d8190bb585
         with:
           package-to-test: "autocomplete-plus"
       - name: Run the headless Pulsar Tests
