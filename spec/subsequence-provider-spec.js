@@ -35,7 +35,7 @@ describe('SubsequenceProvider', () => {
     let workspaceElement = atom.views.getView(atom.workspace)
     jasmine.attachToDOM(workspaceElement)
 
-    editor = await atom.workspace.open('sample.js')
+    editor = await atom.workspace.open(path.join(__dirname, 'fixtures', 'sample.js'))
     await atom.packages.activatePackage('language-javascript')
     mainModule = (await atom.packages.activatePackage('autocomplete-plus')).mainModule
 
@@ -121,7 +121,7 @@ describe('SubsequenceProvider', () => {
 
   it('does not output suggestions from the other buffer', async () => {
     await atom.packages.activatePackage('language-coffee-script')
-    const coffeeEditor = await atom.workspace.open('sample.coffee')
+    const coffeeEditor = await atom.workspace.open(path.join(__dirname, 'fixtures', 'sample.coffee'))
     const suggestions = await suggestionsForPrefix(provider, coffeeEditor, 'item')
 
     expect(suggestions).toHaveLength(0)
@@ -248,7 +248,7 @@ describe('SubsequenceProvider', () => {
       atom.config.set('autocomplete-plus.includeCompletionsFromAllBuffers', true)
 
       await atom.packages.activatePackage('language-coffee-script')
-      editor = await atom.workspace.open('sample.coffee')
+      editor = await atom.workspace.open(path.join(__dirname, 'fixtures', 'sample.coffee'))
     })
 
     afterEach(() => {
