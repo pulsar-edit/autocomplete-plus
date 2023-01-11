@@ -29,11 +29,8 @@ jobs:
           node-version: 16
       - name: Setup Pulsar Editor
         uses: pulsar-edit/action-pulsar-dependency@1c6f3188841fd065b11828929fe76f755e8aba90
-        with:
-          package-to-test: "autocomplete-plus"
       - name: Run the headless Pulsar Tests
         uses: GabrielBB/xvfb-action@v1
         with:
           # What if we match Pulsar Package Tests?
-          run: node -e "require('./script/run-package-tests')('autocomplete-plus')"
-          working-directory: ./pulsar
+          run: pulsar --test spec
