@@ -16,21 +16,11 @@ jobs:
       fail-fast: false
     runs-on: ${{ matrix.os }}
     steps:
-      - name: Install Windows-build-tools
-        if: ${{ matrix.os == 'windows-2019' }}
-        run: |
-          npm i --global windows-build-tools@4.0.0
-          npm config set msvs_version 2019
       - name: Checkout the Latest Package Code
         uses: actions/checkout@v3
-      - name: Setup Node
-        uses: actions/setup-node@v3
-        with:
-          node-version: 16
       - name: Setup Pulsar Editor
         uses: pulsar-edit/action-pulsar-dependency@1c6f3188841fd065b11828929fe76f755e8aba90
       - name: Run the headless Pulsar Tests
         uses: GabrielBB/xvfb-action@v1
         with:
-          # What if we match Pulsar Package Tests?
           run: pulsar --test spec
