@@ -1,23 +1,26 @@
 name: CI
 
-on: [push, pull]
+on:
+  - push
+  - pull_request
 
 env:
-  CI: true
+  NODE_ENV: "development"
 
 jobs:
-  Test:
+  test:
+    name: Test
     strategy:
       matrix:
-        os: [ubuntu-latest, macos-latest, windows-latest]
-        channel: [stable, beta]
+        os: [ubuntu-20.04, macos-latest, windows-2019]
+      fail-fast: false
     runs-on: ${{ matrix.os }}
     steps:
-    - uses: actions/checkout@v1
-    - uses: UziTech/action-setup-atom@v2
-      with:
-        version: ${{ matrix.channel }}
-    - name: Install dependencies
-      run: apm install
-    - name: Run tests
-      run: atom --test spec
+      - name: Checkout the Latest Package Code
+        uses: actions/checkout@v3
+      - name: Setup Pulsar Editor
+        uses: pulsar-edit/action-pulsar-dependency@1c6f3188841fd065b11828929fe76f755e8aba90
+      - name: Run the headless Pulsar Tests
+        uses: GabrielBB/xvfb-action@v1
+        with:
+          run: pulsar --test spec
