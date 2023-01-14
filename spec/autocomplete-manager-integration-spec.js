@@ -84,7 +84,7 @@ describe('Autocomplete Manager', () => {
 
       expect(provider.onDidInsertSuggestion).toHaveBeenCalled();
 
-      ({editor, triggerPosition, suggestion} = provider.onDidInsertSuggestion.calls.mostRecent().args[0])
+      ({editor, triggerPosition, suggestion} = provider.onDidInsertSuggestion.mostRecentCall.args[0])
       expect(editor).toBe(editor)
       expect(triggerPosition).toEqual([0, 1])
       expect(suggestion.text).toBe('ab')
@@ -232,14 +232,14 @@ describe('Autocomplete Manager', () => {
       })
 
       it('caches the blacklist result', async () => {
-        spyOn(path, 'basename').and.callThrough()
+        spyOn(path, 'basename').andCallThrough()
 
         editor.insertText('a')
         editor.insertText('b')
         editor.insertText('c')
 
         await waitForAutocompleteToDisappear(editor)
-        expect(path.basename.calls.count()).toBe(1)
+        expect(path.basename.callCount).toBe(1)
       })
 
       it('shows suggestions when the path is changed to not match the blacklist', async () => {
@@ -2032,8 +2032,8 @@ defm`
       })
 
       ;({ autocompleteManager } = mainModule)
-      spyOn(autocompleteManager, 'findSuggestions').and.callThrough()
-      spyOn(autocompleteManager, 'displaySuggestions').and.callThrough()
+      spyOn(autocompleteManager, 'findSuggestions').andCallThrough()
+      spyOn(autocompleteManager, 'displaySuggestions').andCallThrough()
     })
 
     describe('when strict matching is used', () => {
@@ -2048,7 +2048,7 @@ defm`
         editor.insertText('o')
 
         await conditionPromise(
-          () => autocompleteManager.findSuggestions.calls.count() === 1
+          () => autocompleteManager.findSuggestions.callCount === 1
         )
       })
     })
@@ -2194,7 +2194,7 @@ defm`
 
       it('does not update the suggestion list while composition is in progress', async () => {
         const activeElement = editorView.querySelector('input')
-        spyOn(autocompleteManager.suggestionList, 'changeItems').and.callThrough()
+        spyOn(autocompleteManager.suggestionList, 'changeItems').andCallThrough()
 
         editor.moveToBottom()
         editor.insertText('q')
@@ -2203,26 +2203,26 @@ defm`
         await waitForAutocomplete(editor)
 
         expect(autocompleteManager.suggestionList.changeItems).toHaveBeenCalled()
-        expect(autocompleteManager.suggestionList.changeItems.calls.mostRecent().args[0][0].text).toBe('quicksort')
-        autocompleteManager.suggestionList.changeItems.calls.reset()
+        expect(autocompleteManager.suggestionList.changeItems.mostRecentCall.args[0][0].text).toBe('quicksort')
+        autocompleteManager.suggestionList.changeItems.callCount = 0
 
         activeElement.dispatchEvent(buildIMECompositionEvent('compositionstart', {data: 'i', target: activeElement}))
         triggerAutocompletion(editor, false, 'i')
 
         await conditionPromise(() =>
-          autocompleteManager.suggestionList.changeItems.calls.count() > 0
+          autocompleteManager.suggestionList.changeItems.callCount > 0
         )
 
-        expect(autocompleteManager.suggestionList.changeItems.calls.mostRecent().args[0][0].text).toBe('quicksort')
-        autocompleteManager.suggestionList.changeItems.calls.reset()
+        expect(autocompleteManager.suggestionList.changeItems.mostRecentCall.args[0][0].text).toBe('quicksort')
+        autocompleteManager.suggestionList.changeItems.callCount = 0
 
         activeElement.dispatchEvent(buildIMECompositionEvent('compositionupdate', {data: 'ï', target: activeElement}))
         editor.selectLeft()
 
         editor.insertText('ï')
 
-        const initialCallCount = autocompleteManager.suggestionList.changeItems.calls.count()
-        await conditionPromise(() => autocompleteManager.suggestionList.changeItems.calls.count() > initialCallCount)
+        const initialCallCount = autocompleteManager.suggestionList.changeItems.callCount
+        await conditionPromise(() => autocompleteManager.suggestionList.changeItems.callCount > initialCallCount)
 
         expect(autocompleteManager.suggestionList.changeItems).toHaveBeenCalledWith(null)
         activeElement.dispatchEvent(buildIMECompositionEvent('compositionend', {target: activeElement}))
