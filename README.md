@@ -1,3 +1,5 @@
+# This repo is Archived under Pulsar-Edit. As it is now Bundled into the Core Editor [PR#358](https://github.com/pulsar-edit/pulsar/pull/358)
+
 # Autocomplete+ package
 [![macOS Build Status](https://travis-ci.org/atom/autocomplete-plus.svg?branch=master)](https://travis-ci.org/atom/autocomplete-plus) [![Windows Build status](https://ci.appveyor.com/api/projects/status/9bpokrud2apgqsq0/branch/master?svg=true)](https://ci.appveyor.com/project/Atom/autocomplete-plus/branch/master) [![Dependency Status](https://david-dm.org/atom/autocomplete-plus.svg)](https://david-dm.org/atom/autocomplete-plus)
 
