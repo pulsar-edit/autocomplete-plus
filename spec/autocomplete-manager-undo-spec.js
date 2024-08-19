@@ -24,7 +24,7 @@ describe('Autocomplete Manager', () => {
       jasmine.useRealClock()
       atom.config.set('autocomplete-plus.enableAutoActivation', true)
 
-      editor = await atom.workspace.open('sample.js')
+      editor = await atom.workspace.open(path.join(__dirname, 'fixtures', 'sample.js'))
 
       await atom.packages.activatePackage('language-javascript')
 

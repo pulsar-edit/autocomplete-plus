@@ -49,7 +49,7 @@ return sort(Array.apply(this, arguments));
 
     await atom.packages.activatePackage('autosave')
 
-    editor = await atom.workspace.open(filePath)
+    editor = await atom.workspace.open(path.join(__dirname, 'fixtures', filePath))
     editorView = atom.views.getView(editor)
 
     await atom.packages.activatePackage('language-javascript')

@@ -2058,7 +2058,7 @@ defm`
     beforeEach(async () => {
       atom.config.set('autocomplete-plus.enableAutoActivation', true)
 
-      editor = await atom.workspace.open('sample.js')
+      editor = await atom.workspace.open(path.join(__dirname, 'fixtures', 'sample.js'))
       editorView = atom.views.getView(editor)
 
       await atom.packages.activatePackage('language-javascript')
@@ -2259,7 +2259,7 @@ defm`
     beforeEach(async () => {
       atom.config.set('autocomplete-plus.enableAutoActivation', true)
 
-      editor = await atom.workspace.open('samplelong.js')
+      editor = await atom.workspace.open(path.join(__dirname, 'fixtures', 'samplelong.js'))
 
       // Activate the package
       mainModule = (await atom.packages.activatePackage('autocomplete-plus')).mainModule

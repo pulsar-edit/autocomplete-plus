@@ -24,7 +24,7 @@ describe('Provider API Legacy', () => {
     jasmine.attachToDOM(workspaceElement)
 
     await atom.packages.activatePackage('language-javascript')
-    editor = await atom.workspace.open('sample.js')
+    editor = await atom.workspace.open(path.join(__dirname, 'fixtures', 'sample.js'))
     mainModule = (await atom.packages.activatePackage('autocomplete-plus')).mainModule
     await conditionPromise(() => {
       autocompleteManager = mainModule.autocompleteManager

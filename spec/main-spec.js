@@ -21,7 +21,7 @@ describe('Autocomplete', () => {
     let workspaceElement = atom.views.getView(atom.workspace)
     jasmine.attachToDOM(workspaceElement)
 
-    editor = await atom.workspace.open('sample.js')
+    editor = await atom.workspace.open(path.join(__dirname, 'fixtures', 'sample.js'))
     await atom.packages.activatePackage('language-javascript')
 
     // Activate the package
